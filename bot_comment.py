@@ -38,7 +38,7 @@ class InstagramBot:
     def person(phrase, loc):
         for word in phrase:
             loc.send_keys(word)
-            time.sleep(random.randint(1,5)/30)
+            time.sleep(random.randint(1,5)/30) # tempo para digitar cada letra.
 
     def tag_photos(self, hashtag):
         driver = self.driver
@@ -64,15 +64,15 @@ class InstagramBot:
                 time.sleep(random.randint(3, 5))
                 
                 self.person(random.choice(comments_list), input_comment)
-                time.sleep(random.randint(30, 40))
+                time.sleep(random.randint(5, 10)) #tempo até publicar comentario.
                 driver.find_element_by_xpath('//button[contains(text(),"Publicar")]').click()
                 time.sleep(5)
             except Exception as e:
                 print(e)
                 time.sleep(5)
 
-insta_user = input("Enter a User...:  ")
-insta_pass = input("Enter a pass...:  ")
+insta_user = "dalmatica_" #input("Enter a User...:  ")
+insta_pass = 'Estivemega$10' #input("Enter a pass...:  ")
 
 ganharSorteio = InstagramBot(insta_user, insta_pass)
 ganharSorteio.login()

@@ -32,8 +32,8 @@ class InstagramBot:
         input_pass.send_keys(Keys.RETURN)
         
         time.sleep(5)
-        self.get_friends('threedp.png')
-        #self.tag_photos('CKNo0eSBsDwRCrP79x7eQHsgp9wv1yPOER_zzU0')
+        #self.get_friends('threedp.png')
+        self.tag_photos('CKNo0eSBsDwRCrP79x7eQHsgp9wv1yPOER_zzU0')
 
     @staticmethod
     def person(phrase, loc):
@@ -70,15 +70,15 @@ class InstagramBot:
 
         driver.execute_script('window.scrollTo(0, document.body.scrollHeight);')
         
-        friends = ["dam", "oh shit"]
-        for friend in friends:
+        friends = ["dam", "oh shit", "boss", "king", "oh my god", "jesus"]
+        for friend in range(230):
             try:  
                 driver.find_element_by_class_name('Ypffh').click()
                 input_comment = driver.find_element_by_class_name('Ypffh')
                 time.sleep(random.randint(3, 5))
                 
-                self.person(random.choice(comments_list), input_comment)
-                time.sleep(random.randint(15, 25))
+                self.person(random.choice(friends), input_comment)
+                time.sleep(random.randint(4, 5))
                 driver.find_element_by_xpath('//button[contains(text(),"Publicar")]').click()
                 time.sleep(5)
             except Exception as e:
@@ -88,6 +88,6 @@ class InstagramBot:
 #insta_user = input("Enter a User...:  ")
 #insta_pass = input("Enter a pass...:  ")
 
-#ganharSorteio = InstagramBot('dalmatica_', 'Estivemega$10')
-ganharSorteio = InstagramBot('threedp.png', 'xErife10')
+ganharSorteio = InstagramBot('dalmatica_', 'Estivemega$10')
+#ganharSorteio = InstagramBot('threedp.png', 'xErife10')
 ganharSorteio.login()
