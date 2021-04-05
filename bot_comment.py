@@ -32,7 +32,7 @@ class InstagramBot:
         input_pass.send_keys(Keys.RETURN)
         
         time.sleep(5)
-        self.tag_photos('money')
+        self.tag_photos('bolos')
 
     @staticmethod
     def person(phrase, loc):
@@ -53,25 +53,27 @@ class InstagramBot:
         [href for href in pic_hrefs if hashtag in href]
         print(hashtag + 'fotos ' + str(len(pic_hrefs)))
 
+
+
         for pic_href in pic_hrefs:
             driver.get(pic_href)
             driver.execute_script('window.scrollTo(0, document.body.scrollHeight);')
             try:
-                comments_list = ["dam", "oh shit"]
+                comments_list = ["Que capricho! amei", "Que capricho", "Você arrasa!", "Que obra de arte!", "Um mimo!", "Que trabalho delicado uma obra de arte.", "Maravilhoso!", "Dá pra sentir o gosto só de ver!", "Arrasou como sempre!", "Uauuu, tá mega maravilhoso." ]
                 
                 driver.find_element_by_class_name('Ypffh').click()
                 input_comment = driver.find_element_by_class_name('Ypffh')
                 time.sleep(random.randint(3, 5))
                 
                 self.person(random.choice(comments_list), input_comment)
-                time.sleep(random.randint(5, 10)) #tempo até publicar comentario.
+                time.sleep(random.randint(60, 90)) #tempo até publicar comentario.
                 driver.find_element_by_xpath('//button[contains(text(),"Publicar")]').click()
                 time.sleep(5)
             except Exception as e:
                 print(e)
                 time.sleep(5)
 
-insta_user = "dalmatica_" #input("Enter a User...:  ")
+insta_user = "marddocuras" #input("Enter a User...:  ")
 insta_pass = 'Estivemega$10' #input("Enter a pass...:  ")
 
 ganharSorteio = InstagramBot(insta_user, insta_pass)
