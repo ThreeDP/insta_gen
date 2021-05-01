@@ -32,8 +32,8 @@ class InstagramBot:
         input_pass.send_keys(Keys.RETURN)
         
         time.sleep(5)
-        #self.get_friends('threedp.png')
-        self.tag_photos('CKNo0eSBsDwRCrP79x7eQHsgp9wv1yPOER_zzU0')
+        self.get_friends('dalmatica_')
+        #self.tag_photos('CKNo0eSBsDwRCrP79x7eQHsgp9wv1yPOER_zzU0')
 
     @staticmethod
     def person(phrase, loc):
@@ -46,7 +46,8 @@ class InstagramBot:
         driver.get("https://www.instagram.com/"+ username_insta +"/")
 
         try:
-            following_bt = driver.find_element_by_xpath("//li[3]/a [@href='/threedp.png/following/']")
+            name_text = "//li[3]/a [@href='/"+ self.username +"/following/']"
+            following_bt = driver.find_element_by_xpath(name_text)
             following_bt.click()
             time.sleep(2)
 
@@ -56,8 +57,7 @@ class InstagramBot:
 
             hrefs = driver.find_elements_by_tag_name("a")
             list_friends = [elem.get_attribute("title") for elem in hrefs]
-            #[name_friend for name_friend in list_friends if username_insta in name_friend]
-            print(username_insta + 'fotos ' + str(len(list_friends)))
+            [name_friend for name_friend in list_friends if username_insta in name_friend]
             print(list_friends)
         except Exception as e:
             print(e)
